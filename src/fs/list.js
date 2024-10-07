@@ -2,7 +2,7 @@ import { promises } from "fs";
 
 const list = async () => {
   const errorMessage = "FS operation failed";
-  const folderPath = "./files";
+  const folderPath = "./src/fs/files";
 
   try {
     await promises.stat(folderPath);

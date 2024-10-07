@@ -2,8 +2,8 @@ import { constants, promises, access } from "fs";
 import { join } from "path";
 
 const copy = async () => {
-  const origin = "./files";
-  const detination = "./files_copy";
+  const origin = "./src/fs/files";
+  const detination = "./src/fs/files_copy";
   const errorMessage = "FS operation failed";
 
   try {
@@ -11,6 +11,7 @@ const copy = async () => {
 
     try {
       await promises.access(detination, constants.F_OK);
+      console.error(errorMessage);
       throw new Error(errorMessage);
     } catch (error) {
       await promises.mkdir(detination, { recursive: true }).then(() => {

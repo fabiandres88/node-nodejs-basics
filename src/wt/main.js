@@ -8,7 +8,7 @@ const performCalculations = async () => {
 
   const runWorker = (workerData) => {
     return new Promise((resolve) => {
-      const worker = new Worker("./worker.js");
+      const worker = new Worker("./src/wt/worker.js");
 
       worker.on("message", (data) => {
         resolve({ status: "resolved", data });

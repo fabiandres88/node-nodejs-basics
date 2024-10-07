@@ -2,7 +2,7 @@ import { promises } from "fs";
 
 const read = async () => {
   const errorMessage = "FS operation failed";
-  const filerPath = "./files/fileToRead.txt";
+  const filerPath = "./src/fs/files/fileToRead.txt";
 
   try {
     const data = await promises.readFile(filerPath, { encoding: "utf-8" });

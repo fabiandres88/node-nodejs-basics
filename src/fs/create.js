@@ -2,7 +2,7 @@ import { constants, promises } from "fs";
 
 const create = async () => {
   const errorMessage = "FS operation failed";
-  const filePath = "./files/fresh.txt";
+  const filePath = "./src/fs/files/fresh.txt";
   const messageToWrite = "I am fresh and young";
 
   try {

@@ -2,8 +2,8 @@ import { constants, promises } from "fs";
 
 const rename = async () => {
   const errorMessage = "FS operation failed";
-  const fileToRename = "./files/wrongFilename.txt";
-  const renamedfile = "./files/properFilename.md";
+  const fileToRename = "./src/fs/files/wrongFilename.txt";
+  const renamedfile = "./src/fs/files/properFilename.md";
 
   try {
     await promises.access(renamedfile, constants.F_OK);
