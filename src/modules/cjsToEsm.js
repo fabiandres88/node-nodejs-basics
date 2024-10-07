@@ -1,8 +1,6 @@
 import { sep } from "path";
 import { release, version } from "os";
 import { createServer as createServerHttp } from "http";
-import aFile from "./files/a.json";
-import bFile from "./files/a.json";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 
@@ -13,9 +11,9 @@ const random = Math.random();
 let unknownObject;
 
 if (random > 0.5) {
-  unknownObject = aFile;
+  unknownObject = await import("./files/a.json", { with: { type: "json" } });
 } else {
-  unknownObject = bFile;
+  unknownObject = await import("./files/b.json", { with: { type: "json" } });
 }
 
 const __filename = fileURLToPath(import.meta.url);
