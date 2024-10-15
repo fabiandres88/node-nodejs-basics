@@ -11,3 +11,5 @@ export const messages = {
   INVALID_INPUT_MESSAGE: "\nInvalid input\n",
   WELCOME_MESSAGE_WITH_NAME: "\nWelcome to the File Manager, userName!\n",
 };
+
+export const pathContentTableColums = ["Name", "Type"];

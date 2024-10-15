@@ -2,32 +2,32 @@ import {
   ALLOWED_COMMANDS,
   messages,
 } from "../constants/fileManagerConstants.js";
+import { changeDirectory } from "./changeDirectory.js";
+import { goUpperFolder } from "./goUppperFolder.js";
 import { listFilesAndFolders } from "./listFilesAndFolders.js";
+import { cwd } from "process";
 
 const { EXIT_MESAGE } = messages;
 
-export const handleOperations = (command = "", folderPath, userName) => {
+export const handleOperations = (command = "", userName) => {
   const exitMesage = EXIT_MESAGE.replace("userName", userName);
 
   switch (command) {
-    case ALLOWED_COMMANDS.CD:
-      console.log(ALLOWED_COMMANDS.CD);
-      break;
-
     case ALLOWED_COMMANDS.EXIT:
       console.log(exitMesage);
       process.exit();
       break;
 
     case ALLOWED_COMMANDS.LS:
-      listFilesAndFolders(folderPath);
+      listFilesAndFolders(cwd());
       break;
 
     case ALLOWED_COMMANDS.UP:
-      console.log("up");
+      goUpperFolder(userName);
       break;
 
     default:
+      changeDirectory(command);
       break;
   }
 };

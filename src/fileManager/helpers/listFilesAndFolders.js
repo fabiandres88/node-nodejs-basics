@@ -1,23 +1,31 @@
 import { promises } from "fs";
-import { messages } from "../constants/fileManagerConstants.js";
-import { fileOrDirectory } from "./fileOrDirectory.js";
+import {
+  messages,
+  pathContentTableColums,
+} from "../constants/fileManagerConstants.js";
+import { mapPathContent } from "./mapPathContent.js";
+import { sortPathCotentByType } from "./sortPathContentByType.js";
 
 const { CURRENT_DIRECTORY_MESSAGE, FAILED_OPERATION } = messages;
 
 export const listFilesAndFolders = async (folderPath) => {
+  const currentDirectoryMessage = CURRENT_DIRECTORY_MESSAGE.replace(
+    "folderPath",
+    folderPath
+  );
   try {
     await promises.stat(folderPath);
-    const files = await promises.readdir(folderPath);
+    const content = await promises.readdir(folderPath);
 
-    const builtData = files.map((file) => {
-      return { Name: file, Type: fileOrDirectory(file) };
-    });
+    const builtData = mapPathContent(content);
+
+    const tableData = sortPathCotentByType(builtData);
 
     console.log("\n");
-    console.table(builtData, ["Name", "Type"]);
+    console.table(tableData, pathContentTableColums);
     console.log("\n");
-    console.log(CURRENT_DIRECTORY_MESSAGE.replace("folderPath", folderPath));
+    console.log(currentDirectoryMessage);
   } catch (error) {
-    console.log(FAILED_OPERATION);
+    console.log(FAILED_OPERATION, error);
   }
 };

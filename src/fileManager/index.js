@@ -1,5 +1,5 @@
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+import { chdir } from "process";
+import { homedir } from "os";
 import {
   ALLOWED_COMMANDS,
   dataEncoding,
@@ -16,16 +16,17 @@ const {
 
 const USER_NAME = process.argv.at(2).replace("--username=", "");
 
+const homeDirectory = homedir();
+chdir(homeDirectory);
+
 const fileManager = () => {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = dirname(__filename);
   const welcomeMessage = WELCOME_MESSAGE_WITH_NAME.replace(
     "userName",
     USER_NAME
   );
   const curretDirectory = CURRENT_DIRECTORY_MESSAGE.replace(
     "folderPath",
-    __dirname
+    homeDirectory
   );
   const exitMesage = EXIT_MESAGE.replace("userName", USER_NAME);
 
@@ -36,8 +37,11 @@ const fileManager = () => {
     .on("data", (data) => {
       const parsedData = data.trim();
 
-      if (Object.values(ALLOWED_COMMANDS).includes(parsedData)) {
-        handleOperations(parsedData, __dirname, USER_NAME);
+      if (
+        Object.values(ALLOWED_COMMANDS).includes(parsedData) ||
+        parsedData.includes("cd")
+      ) {
+        handleOperations(parsedData, USER_NAME);
       } else {
         console.log(INVALID_INPUT_MESSAGE);
       }
