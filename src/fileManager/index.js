@@ -37,14 +37,7 @@ const fileManager = () => {
     .on("data", (data) => {
       const parsedData = data.trim();
 
-      if (
-        Object.values(ALLOWED_COMMANDS).includes(parsedData) ||
-        parsedData.includes("cd")
-      ) {
-        handleOperations(parsedData, USER_NAME);
-      } else {
-        console.log(INVALID_INPUT_MESSAGE);
-      }
+      handleOperations(parsedData, USER_NAME);
     })
     .setEncoding(dataEncoding.UTF_8);
 

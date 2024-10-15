@@ -1,15 +1,18 @@
 import path from "path";
 import { chdir, cwd } from "process";
 import { existsSync } from "fs";
-import { messages } from "../constants/fileManagerConstants.js";
+import {
+  ALLOWED_COMMANDS,
+  messages,
+} from "../constants/fileManagerConstants.js";
 const { CURRENT_DIRECTORY_MESSAGE } = messages;
 
-export const changeDirectory = (command = "") => {
-  const filteredDirectory = command.replace("cd", "").trim();
+export const changeDirectory = (directory = "") => {
+  //   const filteredDirectory = command.replace(ALLOWED_COMMANDS.CD, "").trim();
 
-  const newDir = path.isAbsolute(filteredDirectory)
-    ? filteredDirectory
-    : path.join(cwd(), filteredDirectory);
+  const newDir = path.isAbsolute(directory)
+    ? directory
+    : path.join(cwd(), directory);
 
   if (existsSync(newDir)) {
     chdir(newDir);

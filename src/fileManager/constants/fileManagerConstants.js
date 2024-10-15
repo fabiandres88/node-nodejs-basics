@@ -2,7 +2,14 @@ export const dataEncoding = {
   UTF_8: "utf8",
 };
 
-export const ALLOWED_COMMANDS = { CD: "cd", EXIT: ".exit", LS: "ls", UP: "up" };
+export const ALLOWED_COMMANDS = {
+  CD: "cd",
+  EXIT: ".exit",
+  LS: "ls",
+  UP: "up",
+  CAT: "cat",
+  ADD: "add",
+};
 
 export const messages = {
   CURRENT_DIRECTORY_MESSAGE: "\nYou are currently in: folderPath\n",
