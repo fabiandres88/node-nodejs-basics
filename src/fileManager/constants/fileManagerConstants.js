@@ -9,6 +9,7 @@ export const ALLOWED_COMMANDS = {
   UP: "up",
   CAT: "cat",
   ADD: "add",
+  RN: "rn",
 };
 
 export const messages = {
@@ -18,6 +19,7 @@ export const messages = {
   INVALID_INPUT_MESSAGE: "\nInvalid input\n",
   WELCOME_MESSAGE_WITH_NAME: "\nWelcome to the File Manager, userName!\n",
   FILE_WAS_CREATED: "\nFile was created\n",
+  FILE_WAS_RENAMED: "\nFile was renamed\n",
 };
 
 export const pathContentTableColums = ["Name", "Type"];

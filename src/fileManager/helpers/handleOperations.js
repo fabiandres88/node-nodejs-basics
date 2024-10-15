@@ -8,11 +8,12 @@ import { listFilesAndFolders } from "./listFilesAndFolders.js";
 import { cwd } from "process";
 import { readFile } from "./readFile.js";
 import { createFile } from "./createFile.js";
+import { renameFile } from "./renameFile.js";
 
 const { EXIT_MESAGE, INVALID_INPUT_MESSAGE } = messages;
 
 export const handleOperations = (input = "", userName) => {
-  const [command, argument] = input.trim().split(" ");
+  const [command, argument, argument2] = input.trim().split(" ");
   const exitMesage = EXIT_MESAGE.replace("userName", userName);
 
   switch (command) {
@@ -45,6 +46,13 @@ export const handleOperations = (input = "", userName) => {
 
     case ALLOWED_COMMANDS.UP:
       goUpperFolder(userName);
+      break;
+
+    case ALLOWED_COMMANDS.RN:
+      if (argument) {
+        renameFile(argument, argument2);
+      }
+      break;
       break;
 
     default:
