@@ -1,7 +1,7 @@
 import { promises } from "fs";
 import {
   messages,
-  pathContentTableColums,
+  PATH_CONTENT_TABLE_COUMS,
 } from "../constants/fileManagerConstants.js";
 import { mapPathContent } from "./mapPathContent.js";
 import { sortPathCotentByType } from "./sortPathContentByType.js";
@@ -22,7 +22,7 @@ export const listFilesAndFolders = async (folderPath) => {
     const tableData = sortPathCotentByType(builtData);
 
     console.log("\n");
-    console.table(tableData, pathContentTableColums);
+    console.table(tableData, PATH_CONTENT_TABLE_COUMS);
     console.log("\n");
     console.log(currentDirectoryMessage);
   } catch (error) {

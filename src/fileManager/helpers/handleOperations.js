@@ -12,6 +12,7 @@ import { renameFile } from "./renameFile.js";
 import { copyFile } from "./copyFile.js";
 import { moveFile } from "./moveFile.js";
 import { removedFile } from "./removeFile.js";
+import { operatingSystem } from "./operatingSystem.js";
 
 const { EXIT_MESAGE, INVALID_INPUT_MESSAGE } = messages;
 
@@ -56,6 +57,12 @@ export const handleOperations = (input = "", userName) => {
     case ALLOWED_COMMANDS.MOVE:
       if (argument && argument2) {
         moveFile(argument, argument2);
+      }
+      break;
+
+    case ALLOWED_COMMANDS.OPERATING_SYSTEM:
+      if (argument) {
+        operatingSystem(argument);
       }
       break;
 

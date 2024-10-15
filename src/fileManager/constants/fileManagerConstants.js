@@ -13,6 +13,7 @@ export const ALLOWED_COMMANDS = {
   REMOVE: "rm",
   RENAME: "rn",
   UP: "up",
+  OPERATING_SYSTEM: "os",
 };
 
 export const messages = {
@@ -25,6 +26,16 @@ export const messages = {
   FILE_WAS_RENAMED: "\nFile was renamed\n",
 };
 
-export const pathContentTableColums = ["Name", "Type"];
+export const PATH_CONTENT_TABLE_COUMS = ["Name", "Type"];
 
 export const TEXT_CONTENT = `This is a test file created`;
+
+export const OS_ARGUMENTS = {
+  EOL: "--EOL",
+  CPUS: "--cpus",
+  HOME_DIR: "--homedir",
+  USER_NAME: "--username",
+  ARCHITECTURE: "--architecture",
+};
+
+export const CPUS_TABLE_COLUMNS = ["Model", "Speed"];
