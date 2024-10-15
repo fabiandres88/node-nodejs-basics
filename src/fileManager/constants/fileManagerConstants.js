@@ -8,12 +8,13 @@ export const ALLOWED_COMMANDS = {
   CD: "cd",
   COPY: "cp",
   EXIT: ".exit",
+  HASH: "hash",
   LIST: "ls",
   MOVE: "mv",
+  OPERATING_SYSTEM: "os",
   REMOVE: "rm",
   RENAME: "rn",
   UP: "up",
-  OPERATING_SYSTEM: "os",
 };
 
 export const messages = {

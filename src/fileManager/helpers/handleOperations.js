@@ -13,6 +13,7 @@ import { copyFile } from "./copyFile.js";
 import { moveFile } from "./moveFile.js";
 import { removedFile } from "./removeFile.js";
 import { operatingSystem } from "./operatingSystem.js";
+import { hashFile } from "./hashFile.js";
 
 const { EXIT_MESAGE, INVALID_INPUT_MESSAGE } = messages;
 
@@ -48,6 +49,12 @@ export const handleOperations = (input = "", userName) => {
     case ALLOWED_COMMANDS.EXIT:
       console.log(exitMesage);
       process.exit();
+      break;
+
+    case ALLOWED_COMMANDS.HASH:
+      if (argument) {
+        hashFile(argument);
+      }
       break;
 
     case ALLOWED_COMMANDS.LIST:
