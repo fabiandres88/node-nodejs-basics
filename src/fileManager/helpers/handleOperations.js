@@ -7,6 +7,7 @@ import { goUpperFolder } from "./goUppperFolder.js";
 import { listFilesAndFolders } from "./listFilesAndFolders.js";
 import { cwd } from "process";
 import { readFile } from "./readFile.js";
+import { createFile } from "./createFile.js";
 
 const { EXIT_MESAGE, INVALID_INPUT_MESSAGE } = messages;
 
@@ -15,6 +16,12 @@ export const handleOperations = (input = "", userName) => {
   const exitMesage = EXIT_MESAGE.replace("userName", userName);
 
   switch (command) {
+    case ALLOWED_COMMANDS.ADD:
+      if (argument) {
+        createFile(argument);
+      }
+      break;
+
     case ALLOWED_COMMANDS.CAT:
       if (argument) {
         readFile(argument);

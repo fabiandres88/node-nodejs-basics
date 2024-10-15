@@ -17,6 +17,9 @@ export const messages = {
   FAILED_OPERATION: "\nOperation failed\n",
   INVALID_INPUT_MESSAGE: "\nInvalid input\n",
   WELCOME_MESSAGE_WITH_NAME: "\nWelcome to the File Manager, userName!\n",
+  FILE_WAS_CREATED: "\nFile was created\n",
 };
 
 export const pathContentTableColums = ["Name", "Type"];
+
+export const TEXT_CONTENT = `This is a test file created`;
