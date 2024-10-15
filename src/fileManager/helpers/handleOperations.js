@@ -9,6 +9,7 @@ import { cwd } from "process";
 import { readFile } from "./readFile.js";
 import { createFile } from "./createFile.js";
 import { renameFile } from "./renameFile.js";
+import { copyFile } from "./copyFile.js";
 
 const { EXIT_MESAGE, INVALID_INPUT_MESSAGE } = messages;
 
@@ -35,6 +36,12 @@ export const handleOperations = (input = "", userName) => {
       }
       break;
 
+    case ALLOWED_COMMANDS.CP:
+      if (argument && argument2) {
+        copyFile(argument, argument2);
+      }
+      break;
+
     case ALLOWED_COMMANDS.EXIT:
       console.log(exitMesage);
       process.exit();
@@ -49,10 +56,9 @@ export const handleOperations = (input = "", userName) => {
       break;
 
     case ALLOWED_COMMANDS.RN:
-      if (argument) {
+      if (argument && argument2) {
         renameFile(argument, argument2);
       }
-      break;
       break;
 
     default:

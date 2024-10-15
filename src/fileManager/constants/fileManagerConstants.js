@@ -10,6 +10,7 @@ export const ALLOWED_COMMANDS = {
   CAT: "cat",
   ADD: "add",
   RN: "rn",
+  CP: "cp",
 };
 
 export const messages = {
