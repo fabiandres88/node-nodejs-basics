@@ -3,15 +3,16 @@ export const dataEncoding = {
 };
 
 export const ALLOWED_COMMANDS = {
+  ADD: "add",
+  CAT: "cat",
   CD: "cd",
+  COPY: "cp",
   EXIT: ".exit",
   LIST: "ls",
-  UP: "up",
-  CAT: "cat",
-  ADD: "add",
-  RENAME: "rn",
-  COPY: "cp",
   MOVE: "mv",
+  REMOVE: "rm",
+  RENAME: "rn",
+  UP: "up",
 };
 
 export const messages = {

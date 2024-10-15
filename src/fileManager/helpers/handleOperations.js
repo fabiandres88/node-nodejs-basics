@@ -11,6 +11,7 @@ import { createFile } from "./createFile.js";
 import { renameFile } from "./renameFile.js";
 import { copyFile } from "./copyFile.js";
 import { moveFile } from "./moveFile.js";
+import { removedFile } from "./removeFile.js";
 
 const { EXIT_MESAGE, INVALID_INPUT_MESSAGE } = messages;
 
@@ -60,6 +61,12 @@ export const handleOperations = (input = "", userName) => {
 
     case ALLOWED_COMMANDS.UP:
       goUpperFolder(userName);
+      break;
+
+    case ALLOWED_COMMANDS.REMOVE:
+      if (argument) {
+        removedFile(argument);
+      }
       break;
 
     case ALLOWED_COMMANDS.RENAME:
