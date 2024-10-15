@@ -10,6 +10,7 @@ import { readFile } from "./readFile.js";
 import { createFile } from "./createFile.js";
 import { renameFile } from "./renameFile.js";
 import { copyFile } from "./copyFile.js";
+import { moveFile } from "./moveFile.js";
 
 const { EXIT_MESAGE, INVALID_INPUT_MESSAGE } = messages;
 
@@ -36,7 +37,7 @@ export const handleOperations = (input = "", userName) => {
       }
       break;
 
-    case ALLOWED_COMMANDS.CP:
+    case ALLOWED_COMMANDS.COPY:
       if (argument && argument2) {
         copyFile(argument, argument2);
       }
@@ -47,15 +48,21 @@ export const handleOperations = (input = "", userName) => {
       process.exit();
       break;
 
-    case ALLOWED_COMMANDS.LS:
+    case ALLOWED_COMMANDS.LIST:
       listFilesAndFolders(cwd());
+      break;
+
+    case ALLOWED_COMMANDS.MOVE:
+      if (argument && argument2) {
+        moveFile(argument, argument2);
+      }
       break;
 
     case ALLOWED_COMMANDS.UP:
       goUpperFolder(userName);
       break;
 
-    case ALLOWED_COMMANDS.RN:
+    case ALLOWED_COMMANDS.RENAME:
       if (argument && argument2) {
         renameFile(argument, argument2);
       }

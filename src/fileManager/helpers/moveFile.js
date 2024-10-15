@@ -1,11 +1,11 @@
 import path from "path";
 import { cwd } from "process";
-import { createReadStream, createWriteStream } from "fs";
+import { createReadStream, createWriteStream, unlink } from "fs";
 import { messages } from "../constants/fileManagerConstants.js";
 
 const { CURRENT_DIRECTORY_MESSAGE, FAILED_OPERATION } = messages;
 
-export const copyFile = async (file, newPath) => {
+export const moveFile = async (file, newPath) => {
   const filerPath = path.join(cwd(), file);
   const destinationPath = path.join(newPath, file);
 
@@ -24,7 +24,13 @@ export const copyFile = async (file, newPath) => {
     });
 
     writableStream.on("finish", () => {
-      console.log(`\nFile copied to ${destinationPath}\n`);
+      unlink(filerPath, (err) => {
+        if (err) {
+          console.error("Error deleting the original file:", err);
+        } else {
+          console.log(`\nFile moved to ${destinationPath}\n`);
+        }
+      });
     });
 
     const currentDirectoryMessage = CURRENT_DIRECTORY_MESSAGE.replace(

@@ -5,12 +5,13 @@ export const dataEncoding = {
 export const ALLOWED_COMMANDS = {
   CD: "cd",
   EXIT: ".exit",
-  LS: "ls",
+  LIST: "ls",
   UP: "up",
   CAT: "cat",
   ADD: "add",
-  RN: "rn",
-  CP: "cp",
+  RENAME: "rn",
+  COPY: "cp",
+  MOVE: "mv",
 };
 
 export const messages = {
