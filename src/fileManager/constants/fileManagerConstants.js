@@ -1,12 +1,10 @@
-export const dataEncoding = {
-  UTF_8: "utf8",
-};
-
 export const ALLOWED_COMMANDS = {
   ADD: "add",
   CAT: "cat",
   CD: "cd",
+  COMPRESS: "compress",
   COPY: "cp",
+  DECOMPRESS: "decompress",
   EXIT: ".exit",
   HASH: "hash",
   LIST: "ls",
@@ -15,6 +13,12 @@ export const ALLOWED_COMMANDS = {
   REMOVE: "rm",
   RENAME: "rn",
   UP: "up",
+};
+
+export const CPUS_TABLE_COLUMNS = ["Model", "Speed"];
+
+export const dataEncoding = {
+  UTF_8: "utf8",
 };
 
 export const messages = {
@@ -27,10 +31,6 @@ export const messages = {
   FILE_WAS_RENAMED: "\nFile was renamed\n",
 };
 
-export const PATH_CONTENT_TABLE_COUMS = ["Name", "Type"];
-
-export const TEXT_CONTENT = `This is a test file created`;
-
 export const OS_ARGUMENTS = {
   EOL: "--EOL",
   CPUS: "--cpus",
@@ -39,4 +39,6 @@ export const OS_ARGUMENTS = {
   ARCHITECTURE: "--architecture",
 };
 
-export const CPUS_TABLE_COLUMNS = ["Model", "Speed"];
+export const PATH_CONTENT_TABLE_COUMS = ["Name", "Type"];
+
+export const TEXT_CONTENT = `This is a test file created`;

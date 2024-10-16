@@ -39,6 +39,6 @@ export const hashFile = async (file) => {
       console.error(FAILED_OPERATION, error.message);
     });
   } catch (error) {
-    console.error(FAILED_OPERATION, error);
+    console.error(FAILED_OPERATION, error.message);
   }
 };

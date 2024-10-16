@@ -2,7 +2,10 @@ import os from "os";
 import {
   CPUS_TABLE_COLUMNS,
   OS_ARGUMENTS,
+  messages,
 } from "../constants/fileManagerConstants.js";
+
+const { INVALID_INPUT_MESSAGE } = messages;
 
 export const operatingSystem = (argument) => {
   switch (argument) {
@@ -38,6 +41,7 @@ export const operatingSystem = (argument) => {
       break;
 
     default:
+      console.log(INVALID_INPUT_MESSAGE);
       break;
   }
 };

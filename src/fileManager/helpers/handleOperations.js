@@ -14,6 +14,8 @@ import { moveFile } from "./moveFile.js";
 import { removedFile } from "./removeFile.js";
 import { operatingSystem } from "./operatingSystem.js";
 import { hashFile } from "./hashFile.js";
+import { compress } from "./compress.js";
+import { decompress } from "./decompress.js";
 
 const { EXIT_MESAGE, INVALID_INPUT_MESSAGE } = messages;
 
@@ -40,9 +42,21 @@ export const handleOperations = (input = "", userName) => {
       }
       break;
 
+    case ALLOWED_COMMANDS.COMPRESS:
+      if (argument && argument2) {
+        compress(argument, argument2);
+      }
+      break;
+
     case ALLOWED_COMMANDS.COPY:
       if (argument && argument2) {
         copyFile(argument, argument2);
+      }
+      break;
+
+    case ALLOWED_COMMANDS.DECOMPRESS:
+      if (argument && argument2) {
+        decompress(argument, argument2);
       }
       break;
 
